@@ -48,9 +48,12 @@ public class BatchHelper {
         } else if (inputDate.matches("[0-9]{2}-[A-Za-z]{3}-[0-9]{4}")) {
             // Use dd-MMM-yyyy format
             dateParser = new SimpleDateFormat("dd-MMM-yyyy");
+        } else if (inputDate.matches("[0-9]{2}-[0-9]{2}-[0-9]{4}")) {
+            // Use dd-MMM-yyyy format
+            dateParser = new SimpleDateFormat("dd-MM-yyyy");
         } else if (inputDate.matches("[0-9]{4}-[0-9]{2}-[0-9]{2}")) {
             // Use yyyy-mm-dd format
-            dateParser = new SimpleDateFormat("yyyy-mm-dd");
+            dateParser = new SimpleDateFormat("yyyy-MM-dd");
         } else if (inputDate.matches("[0-9]{2}/[0-9]{2}/[0-9]{2}")) {
             // Use dd/mm/yy format
             dateParser = new SimpleDateFormat("dd/mm/yy");
@@ -77,5 +80,9 @@ public class BatchHelper {
 
         return convertedValue;
     }
+
+//    public static void main(String[] args) throws ParseException {
+//        System.out.println(convertDate("14-12-2016"));
+//    }
 
 }

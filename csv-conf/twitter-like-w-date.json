@@ -44,7 +44,7 @@
       "columns": {
         "Date": {
           "dataType":"Date","composit":true,
-          "dateRange":{"from":"01-Jan-2015", "to":"31-Dec-2017"}
+          "dateRange":{"from":"01-01-2015", "to":"31-12-2017"}
         }
       },
       "relations": [
