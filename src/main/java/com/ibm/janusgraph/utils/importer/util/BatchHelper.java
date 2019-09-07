@@ -60,6 +60,9 @@ public class BatchHelper {
         } else if (inputDate.matches("[0-9]+\\.[0-9]{2}\\.[0-9]{4}")) {
             // dd.mm.yyyy
             dateParser = new SimpleDateFormat("dd.mm.yyyy");
+        } else if(inputDate.matches("[0-9]{4}-[0-9]{2}-[0-9]{2} [0-9]{2}:[0-9]{2}:[0-9]{2}")) {
+            // use yyyy-MM-dd hh:mm:ss
+            dateParser = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         } else {
             // Default use MM/dd/yy
             dateParser = new SimpleDateFormat("MM/dd/yy hh:mm");

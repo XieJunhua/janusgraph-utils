@@ -1,0 +1,112 @@
+{
+  "VertexTypes": [
+    {
+      "name": "User",
+      "columns": {
+        "member_id": {
+          "dataType": "String",
+          "dataSubType": "uuid",
+          "composit": true
+        },
+        "phone_number": {
+          "dataType": "String",
+          "dataSubType": "uuid",
+          "composit": true
+        },
+        "name": {
+          "dataType": "String",
+          "dataSubType": "uuid",
+          "composit": true
+        },
+        "id_card": {
+          "dataType": "String",
+          "dataSubType": "uuid",
+          "composit": true
+        },
+        "province": {
+          "dataType": "String",
+          "dataSubType": "uuid",
+          "composit": true
+        },
+        "city": {
+          "dataType": "String",
+          "dataSubType": "uuid",
+          "composit": true
+        }
+      },
+      "row": 150
+    },
+    {
+      "name": "Phone",
+      "columns": {
+        "phone_number": {
+          "dataType": "String",
+          "dataSubType": "phone",
+          "composit": true,
+          "mixedIndex": "search"
+        }
+      },
+      "row": 1500
+    }
+  ],
+  "EdgeTypes": [
+    {
+      "name": "Call",
+      "multiplicity": "SIMPLE",
+      "selfRef": false,
+      "columns": {
+        "time": {
+          "dataType":"Date","composit":true,
+          "dateRange":{"from":"01-01-2015", "to":"31-12-2017"}
+        },
+        "duration": {
+          "dataType":"Integer","composit":true
+        },
+        "location": {
+          "dataType": "String",
+          "dataSubType": "uuid",
+        "composit": true
+        },
+        "location_type": {
+          "dataType": "String",
+          "dataSubType": "uuid",
+          "composit": true
+        }
+      },
+      "relations": [
+        {
+          "left": "User",
+          "right": "Phone",
+          "row": 1000,
+          "selfRef": false,
+          "supernode": {
+            "vertices": 1,
+            "edges": 50
+          }
+        }
+      ]
+    },
+    {
+      "name": "AddressBookHave",
+      "multiplicity": "SIMPLE",
+      "selfRef": false,
+      "columns": {
+        "mark_name": {
+          "dataType":"String","composit":true,
+          "dataSubType": "uuid"
+        }
+      },
+      "relations": [
+        {
+          "left": "User",
+          "right": "Phone",
+          "row": 1000,
+          "supernode": {
+            "vertices": 1,
+            "edges": 50
+          }
+        }
+      ]
+    }
+  ]
+}

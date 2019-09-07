@@ -123,7 +123,10 @@ public class CSVGenerator {
                 }else if (value.dataSubType != null && value.dataSubType.toLowerCase().equals("company")) {
                     Faker faker = new Faker();
                     rec.add(faker.company().name());
-                }else {
+                }else if (value.dataSubType != null && value.dataSubType.toLowerCase().equals("phone")) {
+                    Faker faker = new Faker();
+                    rec.add(faker.phoneNumber().phoneNumber());}
+                else {
                     rec.add(RandomStringUtils.randomAlphabetic(10));
                 }
             }
